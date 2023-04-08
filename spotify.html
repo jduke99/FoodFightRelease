@@ -1,1 +1,30 @@
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3eX0NZfLtGzoLUxPNvRfqm?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Detect Click into iFrame</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style>
+    body{
+        padding: 30px;
+    }
+    iframe{
+        width: 100%;
+        height: 200px;
+        border: 2px solid #ccc;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    $("iframe").on("load", function(){
+        $(this).contents().on("mousedown, mouseup, click", function(){
+            alert("Click detected inside iframe.");
+        });
+    });
+});
+</script>
+</head>
+<body>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3eX0NZfLtGzoLUxPNvRfqm?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</body>
+</html>
